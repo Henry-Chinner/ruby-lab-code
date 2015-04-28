@@ -11,9 +11,7 @@ class VecToImage
 	image = ChunkyPNG::Image.new(@images_wide * 28,@images_high * 28)
 	
 	@images_wide.times do |i|
-		puts i
 		@images_high.times do |j|
-			puts j
 
 		hidden = matrix[i * @images_wide + j]
 		
@@ -25,12 +23,8 @@ class VecToImage
 		max = hidden.max
 
 		hidden.map!{|el| (((el - min) / (max-min)) * 255).ceil}
-
 			hidden.size.times do |k|
-
-				#colored version -- image[(i)*(28) + (k % 28),(j)*(28) + (k / 28)] = ChunkyPNG::Color.rgb((small_image[k] * s2).ceil,(small_image[k] * s3).ceil,(small_image[k] * s1).ceil)
 				image[(i)*(28) + (k % 28),(j)*(28) + (k / 28)] = ChunkyPNG::Color.grayscale(hidden[k])
-			
 			end
 		end
 	end
