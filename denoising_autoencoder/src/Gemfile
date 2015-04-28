@@ -1,0 +1,7 @@
+source 'https://rubygems.org'
+gem 'nmatrix'
+gem 'pry'
+gem 'memoist'
+gem 'stackprof'
+gem 'fastest-csv'
+gem 'chunky_png'
